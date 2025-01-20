@@ -1,3 +1,8 @@
+<?php 
+
+  session_start();
+?>
+
 <html>
   <head>
     <meta charset="utf-8" />
@@ -37,10 +42,20 @@
                   <input name="email" type="email" class="form-control" placeholder="E-mail">
                 </div>
                 <div class="form-group">
-                  <input name="senha" type="password" class="form-control" placeholder="Senha">
+                  <input name="password" type="password" class="form-control" placeholder="Senha">
                 </div>
 
-                
+                <? if (isset($_GET['login']) && $_GET['login'] == 'erro') { ?>
+                  
+                    <div class="text-danger">Usuário ou senha inválidos</div>
+
+                <? } ?>
+
+                <? if (isset($_GET['login']) && $_GET['login'] == 'erro2') { ?>
+                  
+                  <div class="text-danger">Faça o login para acessar páginas protegidas</div>
+
+                <? } ?>
 
                 <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
               </form>
